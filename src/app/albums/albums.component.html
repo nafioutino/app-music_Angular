@@ -1,23 +1,46 @@
 <div class="container">
     <h1> {{titlePage}} </h1>
-    
-    <ul *ngIf="albums" >
-        <li *ngFor="let album of albums"  class="card  mb-3">
-            <div class="card-body">
-                <p class="card-header" > {{album.ref}} </p>
-                <h2 class="card-title"> {{album.title}} </h2>
-                <p class="card-text"> {{album.description}} </p>
-                <div *ngIf="album.tags">
-                    <span *ngFor="let tag of album.tags" class="tags"> {{tag}} </span>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <ul *ngIf="albums" class="d-flex">
+        <div class="details">
+            <app-album-details *ngIf="hasClickDetails" [album]="selectedAlbum" />
+        </div>
+        <div>
+            <li *ngFor="let album of albums" class="card  mb-3">
+                <div class="card-body">
+                    <p class="card-header"> {{album.id}} {{album.ref}} </p>
+                    <h2 class="card-title"><a class="text-info" routerLink="/album/{{album.id}}">{{album.title}}</a>
+                    </h2>
+                    <p class="card-text"> {{album.description}} </p>
+                    <div *ngIf="album.tags">
+                        <span *ngFor="let tag of album.tags" class="tags"> {{tag}} </span>
+                    </div>
+                    <button class="btn btn-primary ">en</button>
+                    <span *ngIf="album.like"> 🖤 {{album.like}}</span>
+                    <span *ngIf="album.duration"> 🕑 {{album.duration}} min </span>
+                    <button class="btn btn-primary" (click)="onSelect(album.id)">Details</button>
                 </div>
-                <button class="btn btn-primary " >en</button>
-                <span *ngIf="album.like"> 🖤 {{album.like}}</span>
-                <span *ngIf="album.duration"> 🕑 {{album.duration}} min  </span>
-                <button class="btn btn-primary" (click)="onSelect(album.id)">Details</button>
-            </div>
-        </li>
-        <app-album-details [album]="selectedAlbum"  />
+            </li>
+        </div>
     </ul>
 </div>
 
- <!-- communication parent vers enfant pour passer à l'enfant l'album selectionné -->
+<!-- communication parent vers enfant pour passer à l'enfant l'album selectionné -->

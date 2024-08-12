@@ -1,1 +1,10 @@
-<p>single-album works!</p>
+<div class="container">
+    <h3> {{album.title}} </h3>
+    <h5>Name: {{album.name}} </h5>
+    <p> {{album.description}} </p>
+    <p>Duration: {{album.duration }} </p>
+    <h6>Like: {{album.like }} </h6>
+    <span *ngFor="let tag of album.tags" class="tags"> {{tag}} </span>
+    <div class="image"><img [src]="" alt="album image"></div>
+
+</div>

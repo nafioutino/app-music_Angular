@@ -18,7 +18,7 @@ export class AlbumService {
   getalbumById(albumId: string): Album {
     const foundAlbum = this.albums.find((album:Album )=> album.id === albumId);
     if (!foundAlbum) {
-      throw new Error('FaceSnap not found!');
+      throw new Error('Album not found!');
     }
     return foundAlbum; 
   }

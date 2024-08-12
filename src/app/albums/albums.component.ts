@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
 import { ALBUMS } from '../mock-albums';
 import { AlbumService } from '../services/album.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
@@ -10,16 +11,25 @@ import { AlbumService } from '../services/album.service';
 })
 export class AlbumsComponent implements OnInit {
   titlePage: string = 'Page principal Albums Music';
+
   albums!: Album[];
-  selectedAlbum!:Album
-  constructor(private albumService: AlbumService) { }
+  selectedAlbum!:Album;
+  hasClickDetails:boolean = false;
+  constructor(private albumService: AlbumService, private router:Router) { }
   
   ngOnInit(): void {
     this.albums = this.albumService.getAlbums()
   }
+
+  onViewAlbum(id:string){
+    this.selectedAlbum = this.albumService.getalbumById(id)
+    this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
+    console.log(this.selectedAlbum.id);
+    
+  }
   
   onSelect(id:string) {
     this.selectedAlbum = this.albumService.getalbumById(id)
-    console.log(this.selectedAlbum);
+    this.hasClickDetails = !this.hasClickDetails
   }
 }
