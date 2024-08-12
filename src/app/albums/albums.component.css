@@ -1,11 +1,17 @@
 .tags{
-    background-color: #96d9e6;
+    background-color: #71fd9b;
     margin-right: 5px;
     border-radius: 4px;
     padding: 3px;
 }
+.card-header{
+    background-color: #33bcfc;
+}
 
-
+.btn{
+    margin-top: 5px;
+    padding-block: 1px;
+}
 
 
 
