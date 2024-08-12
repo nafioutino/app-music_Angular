@@ -1,0 +1,23 @@
+<div class="container">
+    <h1> {{titlePage}} </h1>
+    
+    <ul *ngIf="albums" >
+        <li *ngFor="let album of albums"  class="card  mb-3">
+            <div class="card-body">
+                <p class="card-header" > {{album.ref}} </p>
+                <h2 class="card-title"> {{album.title}} </h2>
+                <p class="card-text"> {{album.description}} </p>
+                <div *ngIf="album.tags">
+                    <span *ngFor="let tag of album.tags" class="tags"> {{tag}} </span>
+                </div>
+                <button class="btn btn-primary " >en</button>
+                <span *ngIf="album.like"> 🖤 {{album.like}}</span>
+                <span *ngIf="album.duration"> 🕑 {{album.duration}} min  </span>
+                <button class="btn btn-primary" (click)="onSelect(album.id)">Details</button>
+            </div>
+        </li>
+        <app-album-details [album]="selectedAlbum"  />
+    </ul>
+</div>
+
+ <!-- communication parent vers enfant pour passer à l'enfant l'album selectionné -->
