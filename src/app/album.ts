@@ -8,5 +8,6 @@ export class Album {
     status!:string;
     url?:string;
     tags?:Array<string>;
+    tracks:any
     like?:string;
 }

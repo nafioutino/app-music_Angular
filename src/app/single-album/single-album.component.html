@@ -1,14 +1,12 @@
 <div class="container mt-5 card">
     <div class="card-body">
         <h3 class="card-header"> {{album.id}} {{album.title}} </h3>
-        <img *ngIf="album.url" [src]="album.url" class="card-img-top" alt="Image de l'album">
-
-        <h6 class="card-title">Name: {{album.name}} </h6>
+        <div class="image mt-3"><img *ngIf="album.url" [src]="album.url" class="card-img-top" alt="Image de l'album"></div>
+        <h5 class="card-title">Name: {{album.name}} </h5>
         <p class="card-text"> {{album.description}} </p>
-        <p>Duration: {{album.duration }} </p>
-        <p>Like: {{album.like }} </p>
+        <small>Duration: {{album.duration }} </small>
+        <h6>Like: {{album.like }} </h6>
         <span *ngFor="let tag of album.tags" class="tags"> {{tag}} </span>
-        <div class="image"><img class="card-img-top" [src]="" alt="album image"></div>
     </div>
-    :!ù
+    
 </div>

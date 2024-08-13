@@ -4,3 +4,7 @@
     border-radius: 4px;
     padding: 3px;
 }
+.card-img-top{
+    max-height: 45rem;
+    max-width: 45rem;
+}

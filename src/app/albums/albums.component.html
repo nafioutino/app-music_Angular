@@ -21,7 +21,7 @@
             <app-album-details [album]="selectedAlbum"></app-album-details>
         </div>
 
-        <ul *ngIf="albums" class="albums-list">
+        <ul *ngIf="albums" class="albums-list mt-3">
             <div *ngFor="let album of filteredAlbums" class="card album-card">
                 <div class="card-body">
                     <p class="card-header"> {{album.id}} {{album.ref}} </p>

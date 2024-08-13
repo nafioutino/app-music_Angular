@@ -2,7 +2,7 @@
     <div class="card">
       <img [src]="album.url" class="card-img-top" alt="Image de l'album">
       <div class="card-body">
-        <h5 class="card-title">{{album.title}}</h5>
+        <h4 class="card-title">{{album.title}}</h4>
         <p class="card-text">Name: {{album.name}}</p>
         <button class="btn btn-primary" (click)="play()">Play >> </button>
         
@@ -12,13 +12,12 @@
           </div>
         </div>
       </div>
-      <ul class="list-group">
-        <li class="list-group-item active">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
+      <h5>List of songs</h5>
+      <ol class="list-group card" >
+        <p class="card-body">
+          <li class="list-item " *ngFor=" let track of album.tracks"><a class="card-text" href="#"> {{track.title}} </a></li>
+        </p>
+      </ol>
     </div>
   </div>
   
