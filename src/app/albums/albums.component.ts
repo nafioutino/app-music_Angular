@@ -16,6 +16,7 @@ export class AlbumsComponent implements OnInit {
   filteredAlbums!: Album[];
   selectedAlbum!: Album;
   hasClickDetails: boolean = false;
+  img:string= "src/assets/img2.jpeg"
 
   constructor(private albumService: AlbumService, private router: Router) {}
 

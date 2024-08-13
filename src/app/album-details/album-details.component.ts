@@ -4,14 +4,29 @@ import { Album } from '../album';
 @Component({
   selector: 'app-album-details',
   templateUrl: './album-details.component.html',
-  styleUrl: './album-details.component.css'
+  styleUrls: ['./album-details.component.css']
 })
 export class AlbumDetailsComponent implements OnInit {
-  // Class Input permet de récuperer les data de l'enfant
-  // album est liée à une entrée [album] du parent dans le sélecteur
   @Input() album!: Album;
-  
+  isPlaying: boolean = false;
+  progress: number = 0;
+  progressInterval: any;
+
   ngOnInit(): void {
   }
-}
 
+  play(): void {
+    this.isPlaying = true;
+    this.progress = 0;
+
+    // Simule la progression
+    this.progressInterval = setInterval(() => {
+      if (this.progress < 100) {
+        this.progress += 1;
+      } else {
+        clearInterval(this.progressInterval);
+        this.isPlaying = false;
+      }
+    }, 1000); 
+  }
+}

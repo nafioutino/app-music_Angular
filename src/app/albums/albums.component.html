@@ -1,5 +1,7 @@
 <div class="container">
     <h1> {{titlePage}} </h1>
+    <!-- <img  src="assets/img1.jpg" class="card-img-top" alt="Image de l'album"> -->
+
     <!-- button de recherche d'un albumm -->
     <form class="d-flex mb-2" (ngSubmit)="onSearch()">
         <input
@@ -23,6 +25,7 @@
             <div *ngFor="let album of filteredAlbums" class="card album-card">
                 <div class="card-body">
                     <p class="card-header"> {{album.id}} {{album.ref}} </p>
+                    <img *ngIf="album.url" [src]="album.url" class="card-img-top" alt="Image de l'album">
                     <h2 class="card-title">
                         <a class="text-info" routerLink="/album/{{album.id}}">{{album.title}}</a>
                     </h2>

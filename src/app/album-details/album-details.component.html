@@ -1,17 +1,24 @@
 <div class="container mt-5">
     <div class="card">
-        <img src="..." class="card-img-top" alt="image de l'album">
-        <div class="card-body">
-            <h5 class="card-title">{{album.title}}</h5>
-            <p class="card-text">Name: {{album.name}} </p>
-            <a href="#" class="btn btn-primary">Play >> </a>
+      <img [src]="album.url" class="card-img-top" alt="Image de l'album">
+      <div class="card-body">
+        <h5 class="card-title">{{album.title}}</h5>
+        <p class="card-text">Name: {{album.name}}</p>
+        <button class="btn btn-primary" (click)="play()">Play >> </button>
+        
+        <!-- Barre de progression -->
+        <div class="progress mt-3" *ngIf="isPlaying">
+          <div class="progress-bar" role="progressbar" [style.width.%]="progress">
+          </div>
         </div>
-        <ul class="list-group">
-            <li class="list-group-item active">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item active">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
     </div>
-</div>
+  </div>
+  

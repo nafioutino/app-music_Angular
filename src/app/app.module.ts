@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PaginateComponent } from './paginate/paginate.component';
 import { FormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common'
 
 @NgModule({
   declarations: [
