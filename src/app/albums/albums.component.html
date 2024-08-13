@@ -1,5 +1,7 @@
 <div class="container">
     <h1> {{titlePage}} </h1>
+    <app-paginate [perPage]="perPage"></app-paginate>
+
     <div class="albums-details-wrapper">
         <div class="details" *ngIf="hasClickDetails">
             <app-album-details [album]="selectedAlbum"></app-album-details>

@@ -19,6 +19,6 @@ export class SingleAlbumComponent implements OnInit {
 
   getAlbum(){
     const albumId = this.route.snapshot.params['id'];
-    this.album = this.albumService.getalbumById(albumId)
+    this.album = this.albumService.getAlbumById(albumId)
   }
 }
