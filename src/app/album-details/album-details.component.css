@@ -1,0 +1,9 @@
+/* album.component.css */
+.progress {
+    height: 15px;
+  }
+  
+  .progress-bar {
+    background-color: #28a745; /* Couleur verte de Bootstrap pour la barre de progression */
+  }
+  
