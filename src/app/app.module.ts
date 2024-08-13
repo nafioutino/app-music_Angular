@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PaginateComponent } from './paginate/paginate.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaginateComponent } from './paginate/paginate.component';
     BrowserModule,
     AppRoutingModule,
     UpperCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,17 @@
 <div class="container">
     <h1> {{titlePage}} </h1>
+    <!-- button de recherche d'un albumm -->
+    <form class="d-flex mb-2" (ngSubmit)="onSearch()">
+        <input
+          class="form-control me-2"
+          type="search"
+          [(ngModel)]="searchQuery"
+          name="search"
+          placeholder="Rechercher un album"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     <app-paginate [perPage]="perPage"></app-paginate>
 
     <div class="albums-details-wrapper">
@@ -8,7 +20,7 @@
         </div>
 
         <ul *ngIf="albums" class="albums-list">
-            <div *ngFor="let album of albums" class="card album-card">
+            <div *ngFor="let album of filteredAlbums" class="card album-card">
                 <div class="card-body">
                     <p class="card-header"> {{album.id}} {{album.ref}} </p>
                     <h2 class="card-title">

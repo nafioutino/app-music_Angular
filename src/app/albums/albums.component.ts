@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
 export class AlbumsComponent implements OnInit {
   titlePage: string = 'Page principale Albums Music';
   perPage = 2; // Nombre d'albums par page
-
+  searchQuery: string = ''; // Propriété pour stocker la requête de recherche
   albums!: Album[];
+  filteredAlbums!: Album[];
   selectedAlbum!: Album;
   hasClickDetails: boolean = false;
 
   constructor(private albumService: AlbumService, private router: Router) {}
 
   ngOnInit(): void {
-    // Initialisation des albums pour la page 1
     this.updateAlbums(1);
-
+    
     // S'abonner aux changements de page
     this.albumService.sendCurrentNumberPage.subscribe(pageNumber => {
       this.updateAlbums(pageNumber);
@@ -30,6 +30,19 @@ export class AlbumsComponent implements OnInit {
 
   updateAlbums(pageNumber: number): void {
     this.albums = this.albumService.paginateAlbums(pageNumber, this.perPage);
+    this.filterAlbums();
+  }
+
+  filterAlbums(): void {
+    if (this.searchQuery.trim()) {
+      this.filteredAlbums = this.albums.filter(album => album.title.toLowerCase().includes(this.searchQuery.toLowerCase()));
+    } else {
+      this.filteredAlbums = this.albums;
+    }
+  }
+
+  onSearch(): void {
+    this.filterAlbums();
   }
 
   onViewAlbum(id: string) {
