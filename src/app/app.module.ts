@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, mergeApplicationConfig, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SingleAlbumComponent } from './single-album/single-album.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { DatePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PaginateComponent } from './paginate/paginate.component';
 import { FormsModule } from '@angular/forms';
 import { NgOptimizedImage } from '@angular/common'
@@ -28,9 +28,13 @@ import { NgOptimizedImage } from '@angular/common'
     AppRoutingModule,
     UpperCasePipe,
     TitleCasePipe,
-    FormsModule
+    FormsModule,
+    DatePipe
   ],
-  providers: [],
+  exports:[],
+  providers:  [
+    {provide:LOCALE_ID,useValue:'fr-FR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
