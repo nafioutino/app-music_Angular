@@ -12,10 +12,10 @@
           </div>
         </div>
       </div>
-      <h5>List of songs</h5>
+      <h5 class="card-header">List of songs</h5>
       <ol class="list-group card" >
         <p class="card-body">
-          <li class="list-item " *ngFor=" let track of album.tracks"><a class="card-text" href="#"> {{track.title}} </a></li>
+          <li class="list-item " *ngFor=" let track of album.tracks"><a class="card-text" href="#">{{track.title}}</a> {{track.duration}} </li>
         </p>
       </ol>
     </div>

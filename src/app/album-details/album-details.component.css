@@ -1,9 +1,24 @@
-/* album.component.css */
 .progress {
-    height:10px;
-  }
-  
-  .progress-bar {
-    background-color: #251abe; /* Couleur verte de Bootstrap pour la barre de progression */
-  }
-  
+  height: 10px;
+}
+
+.progress-bar {
+  background-color: #251abe;
+  /* Couleur verte de Bootstrap pour la barre de progression */
+}
+.card-header{
+  background-color: aquamarine;
+}
+
+.card-body {
+  padding: 23px;
+}
+
+ a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
