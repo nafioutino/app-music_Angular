@@ -1,17 +1,109 @@
-.tags{
-    background-color: #71fd9b;
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.albums-details-wrapper {
+    display: flex;
+    gap: 20px; /* Espace entre le bloc détails et les albums */
+    flex-wrap: wrap;
+}
+
+.details {
+    flex: 1 1 30%; /* Largeur du bloc détails */
+    max-width: 400px; /* Limite la largeur maximale */
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.albums-list {
+    flex: 1 1 65%; /* Largeur des albums */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.album-card {
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.album-card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-header {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-title {
+    margin: 10px 0;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.card-title a:hover {
+    text-decoration: underline;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.tags-container {
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e2e6ea;
+    color: #495057;
+    border-radius: 5px;
+    padding: 5px 10px;
     margin-right: 5px;
-    border-radius: 4px;
-    padding: 3px;
-}
-.card-header{
-    background-color: #33bcfc;
+    font-size: 0.9em;
 }
 
-.btn{
-    margin-top: 5px;
-    padding-block: 1px;
+.btn {
+    margin-right: 5px;
 }
 
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
 
+.btn-primary:hover {
+    background-color: #0056b3;
+}
 
+.details, .albums-list {
+    margin-bottom: 20px;
+}
