@@ -27,6 +27,6 @@ export class AlbumDetailsComponent implements OnInit {
         clearInterval(this.progressInterval);
         this.isPlaying = false;
       }
-    }, 100); 
+    }, 1000); 
   }
 }

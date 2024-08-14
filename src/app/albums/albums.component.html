@@ -3,17 +3,11 @@
     <!-- <img  src="assets/img1.jpg" class="card-img-top" alt="Image de l'album"> -->
 
     <!-- button de recherche d'un albumm -->
-    <form class="d-flex mb-2" (ngSubmit)="onSearch()">
-        <input
-          class="form-control me-2"
-          type="search"
-          [(ngModel)]="searchQuery"
-          name="search"
-          placeholder="Rechercher un album"
-          aria-label="Search"
-        />
+    <form class="d-flex mb-2" (ngSubmit)=" onSearch()">
+        <input class="form-control me-2" type="search" [(ngModel)]="searchQuery" name="search"
+            placeholder="Rechercher un album" aria-label="Search" (keydown)=" onSearch()" />
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    </form>
     <app-paginate [perPage]="perPage"></app-paginate>
 
     <div class="albums-details-wrapper">
@@ -25,18 +19,30 @@
             <div *ngFor="let album of filteredAlbums" class="card album-card">
                 <div class="card-body">
                     <p class="card-header"> {{album.id}} {{album.ref}} </p>
-                    <img *ngIf="album.url" [src]="album.url" class="card-img-top" alt="Image de l'album">
-                    <h2 class="card-title">
-                        <a class="text-info" routerLink="/album/{{album.id}}">{{album.title}}</a>
-                    </h2>
-                    <p class="card-text"> {{album.description}} </p>
-                    <div *ngIf="album.tags" class="tags-container">
-                        <span *ngFor="let tag of album.tags" class="tag"> {{tag}} </span>
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <img *ngIf="album.url" [src]="album.url" class="card-img-top" alt="Image de l'album">
+                            <div class="buttons mt-3">
+                                <button class="btn btn-primary">en</button>
+                                <span *ngIf="album.like"> <i class="bi bi-heart-fill"></i> {{album.like}}</span>
+                                <span *ngIf="album.duration"><i class="bi bi-alarm-fill"></i> {{album.duration}} min </span>
+                                <button class="btn btn-primary" (click)="onSelect(album.id)">Details</button>
+                            </div>
+                        </div>
+                        
+
+                        <div class="flex-grow-1 ms-3">
+                            <h2 class="card-title">
+                                <a class="text-info" routerLink="/album/{{album.id}}">{{album.title}}</a>
+                            </h2>
+                            <p class="card-text"> {{album.description}} </p>
+                            <div *ngIf="album.tags" class="tags-container">
+                                <span *ngFor="let tag of album.tags" class="tag"> {{tag}} </span>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-primary">en</button>
-                    <span *ngIf="album.like"> 🖤 {{album.like}}</span>
-                    <span *ngIf="album.duration"> 🕑 {{album.duration}} min </span>
-                    <button class="btn btn-primary" (click)="onSelect(album.id)">Details</button>
+                    
+
                 </div>
             </div>
         </ul>

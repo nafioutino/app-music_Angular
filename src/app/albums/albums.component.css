@@ -111,3 +111,10 @@
 .details, .albums-list {
     margin-bottom: 20px;
 }
+
+span{
+    margin-right: 10px;
+}
+span i{
+    height: 50px;
+}

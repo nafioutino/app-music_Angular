@@ -35,7 +35,7 @@ export class AlbumsComponent implements OnInit {
 
   filterAlbums(): void {
     if (this.searchQuery.trim()) {
-      this.filteredAlbums = this.albums.filter(album => album.title.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      this.filteredAlbums = this.albums.filter(album => album.title.toLowerCase().includes(this.searchQuery.toLocaleLowerCase()));
     } else {
       this.filteredAlbums = this.albums;
     }
@@ -45,11 +45,11 @@ export class AlbumsComponent implements OnInit {
     this.filterAlbums();
   }
 
-  onViewAlbum(id: string) {
-    this.selectedAlbum = this.albumService.getAlbumById(id);
-    this.router.navigateByUrl(`album/${this.selectedAlbum.id}`);
-    console.log(this.selectedAlbum.id);
-  }
+  // onViewAlbum(id: string) {
+  //   this.selectedAlbum = this.albumService.getAlbumById(id);
+  //   this.router.navigateByUrl(`album/${this.selectedAlbum.id}`);
+  //   console.log(this.selectedAlbum.id);
+  // }
 
   onSelect(id: string) {
     this.selectedAlbum = this.albumService.getAlbumById(id);

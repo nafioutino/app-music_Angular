@@ -1,23 +1,51 @@
 <div class="container mt-5">
-    <div class="card">
-      <img [src]="album.url" class="card-img-top" alt="Image de l'album">
-      <div class="card-body">
-        <h4 class="card-title">{{album.title}}</h4>
-        <p class="card-text">Name: {{album.name}}</p>
-        <button class="btn btn-primary" (click)="play()">Play >> </button>
-        
-        <!-- Barre de progression -->
-        <div class="progress mt-3" *ngIf="isPlaying">
-          <div class="progress-bar" role="progressbar" [style.width.%]="progress">
-          </div>
+  <div class="card">
+    <img [src]="album.url" class="card-img-top" alt="Image de l'album">
+    <div class="card-body">
+      <h4 class="card-title">{{album.title}}</h4>
+      <p class="card-text"><strong>Name:</strong> {{album.name}}</p>
+      <button class="btn btn-primary" (click)="play()"><i class="bi bi-play-circle"></i> Play album</button>
+
+      <!-- Barre de progression -->
+      <div class="d-flex flex-column justify-content-center mt-2" *ngIf="isPlaying">
+        <div class="d-flex justify-content-center">
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-skip-backward-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="M11.729 5.055a.5.5 0 0 0-.52.038L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.271-.445" />
+            </svg>
+          </p>
+          <p class="mx-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="" width="30" height="30" fill="currentColor"
+              class="bi bi-pause-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0z" />
+            </svg>
+          </p>
+           <p>
+             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-skip-forward-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="M4.271 5.055a.5.5 0 0 1 .52.038L7.5 7.028V5.5a.5.5 0 0 1 .79-.407L11 7.028V5.5a.5.5 0 0 1 1 0v5a.5.5 0 0 1-1 0V8.972l-2.71 1.935a.5.5 0 0 1-.79-.407V8.972l-2.71 1.935A.5.5 0 0 1 4 10.5v-5a.5.5 0 0 1 .271-.445" />
+                       </svg>
+           </p>
         </div>
+        <div class="progress">
+          <div class=" progress-bar" role="progressbar" [style.width.%]="progress"></div>
+        </div>
+        <p> {{progress}}/{{album.tracks.length}} </p>
       </div>
-      <h5 class="card-header">List of songs</h5>
-      <ol class="list-group card" >
-        <p class="card-body">
-          <li class="list-item " *ngFor=" let track of album.tracks"><a class="card-text" href="#">{{track.title}}</a> {{track.duration}} </li>
-        </p>
-      </ol>
     </div>
+    <h5 class="card-header">List of songs</h5>
+    <ol class="list-group card">
+      <p class="card-body">
+        <li class="list-item " *ngFor=" let track of album.tracks"><a class="card-text" href="#">{{track.title}}</a>
+          {{track.duration}} </li>
+      </p>
+    </ol>
   </div>
-  
+</div>
